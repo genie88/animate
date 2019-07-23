@@ -1,0 +1,56 @@
+{
+  "name": "@hitv/animate",
+  "version": "2.3.2",
+  "description": "animate.css porter using web animation api for hitv.",
+  "jsnext:main": "lib/animate.esm.js",
+  "module": "lib/animate.esm.js",
+  "main": "lib/animate.js",
+  "unpkg": "lib/animate.min.js",
+  "combo": "lib/animate.min.js",
+  "types": "lib/animate.d.ts",
+  "repository": "hitv-module/animate",
+  "keywords": [
+    "animate.css",
+    "animation",
+    "web",
+    "waapi"
+  ],
+  "scripts": {
+    "start": "rollup-worker -c .config/fssrc.dev.js -w",
+    "build": "rimraf ./lib && mkdirp ./lib && rollup-worker -c .config/fssrc.js&& cp -rf types lib/",
+    "lint": "tslint -p ./tsconfig.json src/**/*.ts",
+    "lint:fix": "tslint -p ./tsconfig.json src/**/*.ts --fix",
+    "precommit": "npm run lint && npm test",
+    "prepare": "npm run build",
+    "release": "pushcombo.sh -n animate ./lib/animate.min.js -h root@10.1.172.163"
+  },
+  "author": "genie88 <genie88@163.com>",
+  "dependencies": {
+    "debug": "^3 || ^4",
+    "rollup-plugin-dev-server": "^0.4.3",
+    "rollup-plugin-livereload": "^1.0.0"
+  },
+  "devDependencies": {
+    "@allex/rollup-plugin-node-globals": "^0.0.2",
+    "@allex/typescript": "next",
+    "@babel/core": "latest",
+    "@babel/preset-env": "latest",
+    "@babel/runtime": "latest",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.5.4",
+    "husky": "^1.1.2",
+    "mkdirp": "^0.5.1",
+    "mocha": "^5.2.0",
+    "rimraf": "^2.6.1",
+    "rollup-plugin-babel": "beta",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-typescript2": "^0",
+    "ts-mockito": "^2.3.0",
+    "ts-node": "^7.0.0",
+    "tslint": "5.11.0"
+  },
+  "license": "MIT",
+  "files": [
+    "lib/"
+  ]
+}
